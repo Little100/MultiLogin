@@ -132,7 +132,8 @@ public class MultiInitialLoginSessionHandler {
                         VelocityServer.class,
                         LoginInboundConnection.class,
                         com.velocitypowered.api.util.GameProfile.class,
-                        boolean.class
+                        boolean.class,
+                        String.class
                 )
         ));
     }
@@ -180,6 +181,7 @@ public class MultiInitialLoginSessionHandler {
             String username = login.getUsername();
             String serverId = EncryptionUtils.generateServerId(decryptedSharedSecret, serverKeyPair.getPublic());
             String playerIp = ((InetSocketAddress) this.mcConnection.getRemoteAddress()).getHostString();
+            final String serverIdHash = serverId;
 
             multiCoreAPI.getPlugin().getRunServer().getScheduler().runTaskAsync(() -> {
                 LoginAuthResult result = (LoginAuthResult) multiCoreAPI.getAuthHandler().auth(username, serverId, playerIp);
@@ -218,7 +220,7 @@ public class MultiInitialLoginSessionHandler {
                                 try {
                                     this.mcConnection.setActiveSessionHandler(StateRegistry.LOGIN,
                                             (AuthSessionHandler) authSessionHandler_allArgsConstructor.invoke(
-                                                    this.server, inbound, generateGameProfile(finalGameProfile), true
+                                                    this.server, inbound, generateGameProfile(finalGameProfile), true, serverIdHash
                                             ));
                                 } catch (Throwable e) {
                                     throw new RuntimeException(e);

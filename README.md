@@ -1,3 +1,7 @@
+本仓库作为fork自[CaaMoe/MultiLogin](https://github.com/CaaMoe/MultiLogin)的非官方维护版, 目前支持到最新velocity
+
+> 但我不会经常更新
+
 [English](https://github.com/CaaMoe/MultiLogin/blob/v6/README.en.md)
 <div align="center">
 
@@ -12,9 +16,6 @@ _✨ 正版与多种外置登录共存 ✨_
 
 </div>
 
-> [!CAUTION]
-> 🚧 本项目已停止维护, 因维护与问题修复成本过高, 不再建议继续使用.  
-> 可加入QQ交流群了解详细内幕和获取同类型需求的解决方案.
 
 ## 概述
 
